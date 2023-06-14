@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="shortcut icon" href="img/icone2.png" type="image/x-icon">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="#">
+                <div class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname">Nome</label>
+                        <input id="firstname" type="text" name="firstname" placeholder="Digite seu nome" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="lastname">Nome materno</label>
+                        <input id="lastname" type="text" name="lastname" placeholder="Digite o nome" required>
+                    </div>
+                    <div class="input-box number">
+                        <label for="number">CPF</label>
+                        <input id="number" type="number" name="number" placeholder="Digite seu cpf" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="number">Celular</label>
+                        <input id="number" type="tel" name="number" placeholder="(xx) xx xxxx-xxxxx" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+
+
+                    <div class="input-box">
+                        <label for="confirmPassword">Confirme sua Senha</label>
+                        <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Digite sua senha novamente" required>
+                    </div>
+
+                    <div class="input-box number">
+                        <label for="number">CEP</label>
+                        <input id="number" type="number" name="number" placeholder="Digite seu cep" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="text">Endereço</label>
+                        <input id="text" type="text" name="text" placeholder="Digite seu endereço" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="text">Bairro</label>
+                        <input id="text" type="text" name="text" placeholder="Digite seu bairro" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="text">Complemento</label>
+                        <input id="text" type="text" name="text" placeholder="Digite seu complemento" required>
+                    </div>
+
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-title">
+                        <h6>Gênero</h6>
+                    </div>
+
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input id="female" type="radio" name="gender">
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input id="male" type="radio" name="gender">
+                            <label for="male">Masculino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input id="others" type="radio" name="gender">
+                            <label for="others">Outros</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input id="none" type="radio" name="gender">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="continue-button">
+                    <button><a href="#">Entrar </a> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="fade" class="hide">
+    <div id="loader"> </div>
+  </div>
+
+
+<script>
+
+  //cep
+
+const addressForm = document.querySelector("#address-form");
+const cepInput = document.querySelector("#cep");
+const addressInput = document.querySelector("#address");
+const cityInput = document.querySelector("#city");
+const neighborhoodInput = document.querySelector("#neighborhood");
+const regionInput = document.querySelector("#region");
+const formInputs = document.querySelectorAll("[data-input]");
+
+const closeButton = document.querySelector("#close-message");
+
+// Validate CEP Input
+cepInput.addEventListener("keypress", (e) => {
+const onlyNumbers = /[0-9]|\./;
+const key = String.fromCharCode(e.keyCode);
+
+console.log(key);
+
+console.log(onlyNumbers.test(key));
+
+// allow only numbers
+if (!onlyNumbers.test(key)) {
+  e.preventDefault();
+  return;
+}
+});
+
+// Evento to get address
+cepInput.addEventListener("keyup", (e) => {
+const inputValue = e.target.value;
+
+//   Check if we have a CEP
+if (inputValue.length === 8) {
+  getAddress(inputValue);
+}
+});
+
+// Get address from API
+const getAddress = async (cep) => {
+toggleLoader();
+
+cepInput.blur();
+
+const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
+
+const response = await fetch(apiUrl);
+
+const data = await response.json();
+
+console.log(data);
+console.log(formInputs);
+console.log(data.erro);
+
+// Show error and reset form
+if (data.erro === "true") {
+  if (!addressInput.hasAttribute("disabled")) {
+    toggleDisabled();
+  }
+
+  addressForm.reset();
+  toggleLoader();
+  toggleMessage("CEP Inválido, tente novamente.");
+  return;
+}
+
+// Activate disabled attribute if form is empty
+if (addressInput.value === "") {
+  toggleDisabled();
+}
+
+addressInput.value = data.logradouro;
+cityInput.value = data.localidade;
+neighborhoodInput.value = data.bairro;
+regionInput.value = data.uf;
+
+toggleLoader();
+};
+
+// Add or remove disable attribute
+const toggleDisabled = () => {
+if (regionInput.hasAttribute("disabled")) {
+  formInputs.forEach((input) => {
+    input.removeAttribute("disabled");
+  });
+} else {
+  formInputs.forEach((input) => {
+    input.setAttribute("disabled", "disabled");
+  });
+}
+};
+
+// Show or hide loader
+const toggleLoader = () => {
+const fadeElement = document.querySelector("#fade");
+const loaderElement = document.querySelector("#loader");
+
+fadeElement.classList.toggle("hide");
+loaderElement.classList.toggle("hide");
+};
+
+// Show or hide message
+const toggleMessage = (msg) => {
+const fadeElement = document.querySelector("#fade");
+const messageElement = document.querySelector("#message");
+
+const messageTextElement = document.querySelector("#message p");
+
+messageTextElement.innerText = msg;
+
+fadeElement.classList.toggle("hide");
+messageElement.classList.toggle("hide");
+};
+
+// Close message modal
+("click", () => toggleMessage());
+
+// Save address
+("submit", (e) => {
+e.preventDefault();
+
+toggleLoader();
+
+setTimeout(() => {
+  toggleLoader();
+
+  toggleMessage("Endereço salvo com sucesso!");
+
+  addressForm.reset();
+
+  toggleDisabled();
+}, 1000);
+});
+
+
+
+</script>
+</body>
+
+</html> -->

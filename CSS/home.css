@@ -1,0 +1,385 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    background: var(--button-bg-color);
+}
+
+.container-navegation {
+    border-bottom: 1px solid rgba(196,179,179,0.44);
+    width: 100%;
+}
+
+.navegation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    padding: 15px;
+}
+
+.navegation ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 15px;
+}
+
+.navegation ul li a {
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 30px;
+    font-weight: 800;
+    background: rgb(205, 217, 223);
+    transition: 0.4s ease-in-out; 
+    background: #e97474;
+}
+
+.navegation ul li a:hover {
+    color: white;
+}
+
+.page-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width:1440px;
+    gap: 60px;
+    padding: 40px 0;
+}
+
+.page-home .infoma h1 {
+    font-size: 30px;
+    color: #2FADE3;
+    font-family: "Roboto", Sans-serif;
+}
+
+.page-home .infoma h1:after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid #2FADE3;
+    width: 60px;
+    padding-top: 5px;
+}
+
+.page-home .infoma .info-page-home  {
+    margin-top: 30px;
+}
+
+.page-home .infoma .info-page-home p {
+    font-weight: 900;
+    font-size: 45px;
+}
+
+.page-home .img {
+   max-width: 700px;
+   width: 100%;
+}
+
+.about-service {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1440px;
+}
+
+.about-service .img-about{
+    max-width: 700px;
+    width: 50%;
+    margin: 20px;
+}
+
+.about-service .info{
+    max-width: 600px;
+    width: 100%;
+}
+
+.about-service .info h2{
+    color: #2FADE3;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.about-service .info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.about-service .info p {
+    font-size: 18px;
+}
+
+.oqe h2:after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid #2FADE3;
+    width: 60px;
+    padding-top: 5px;
+}
+
+.comofunc h2:after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid #2FADE3;
+    width: 60px;
+    padding-top: 5px;
+}
+
+.api {
+    color: #2FADE3;
+}
+
+.fundoaz {
+    width: 95%;
+    margin: 40px auto;
+    padding: 40px 40px;
+    background: #e97474;
+    box-shadow: 0px 5px 40px rgb(136, 136, 136);
+}
+
+.fundoaz p{
+    font-size: 20px;
+    color: aliceblue
+}
+
+.fundoaz span{
+    font-weight: bold;
+    font-weight: 700;
+}
+
+.container-services {
+    max-width: 1200px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.container-services h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.container-services h2:after {
+   content: "";
+   display: block;
+   border-bottom: 3px solid #2FADE3;
+   width: 60px;
+   padding-top: 5px;
+}
+
+.container-services .services {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 80px;
+    margin: 0 auto;
+}
+
+.container-services .services .service {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 200px;
+    width: 100%;
+    padding: 40px 20px 80px 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transition: 0.4s ease-in-out;
+}
+
+.container-services .services .service:hover {
+    transform: scale(1.2);
+}
+
+.container-services .services .service img{
+    max-width: 112px;
+    height: 100px;
+    width:100%;
+    margin-bottom: 30px;
+}
+
+.container-services .services .service a{
+    color: #2FADE3;
+}
+
+.utilitys {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.utilitys h2{
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.utilitys h2:after{
+    content: "";
+    display: block;
+    border-bottom: 3px solid #e97474;
+    width: 60px;
+    padding-top: 5px;
+}
+
+.container-utilitys {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.utilitys .container-utilitys .utility{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.utilitys .container-utilitys .utility img{
+    max-width: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.utilitys .container-utilitys .utility h3{
+    margin-bottom: 30px;
+}
+
+.utilitys .container-utilitys .utility p{
+    margin-bottom: 20px;
+}
+
+
+
+
+/* .infoma {
+    padding-top: 0cqb;
+} */
+
+
+.users {
+    max-width: 1260px;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.users h2{
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.users h2:after{
+    content: "";
+    display: block;
+    border-bottom: 3px solid #2FADE3;
+    width: 60px;
+    padding-top: 5px;
+}
+
+.users .container-users {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 100px auto;
+}
+
+.users .container-users .user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px 20px 80px 0px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transition: 0.4s ease-in-out;
+    background-color: #2FADE3;
+}
+
+.users .container-users .user:hover {
+    transform: scale(1.2);
+}
+
+
+.users .container-users .user img {
+    width: 190px;
+    height: 175px;
+    border-radius: 600px 600px;
+}
+
+.users .container-users .user h3 {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 200px;
+    width: 100%;
+    padding: 5px 10px 5px 0px;
+    box-shadow: 0px 0px 10px 0px rgb(167, 166, 166);
+    border-radius: 5px;
+    transition: 0.4s ease-in-out;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.users .container-users .user p {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 200px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.social .mid {
+    max-width: 40px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+
+
+/* @media screen and (max-width: 1330px) {
+   
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
